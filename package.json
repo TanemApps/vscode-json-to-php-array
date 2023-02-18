@@ -3,7 +3,7 @@
   "displayName": "JSON to PHP Array",
   "description": "Convert JSON to PHP Array",
   "version": "1.0.0",
-  "publisher": "Tanem Apps",
+  "publisher": "TanemApps",
   "icon": "icon.png",
   "engines": {
     "vscode": "^1.75.0"
