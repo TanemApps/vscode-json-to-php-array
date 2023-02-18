@@ -17,7 +17,8 @@ export function activate(context: vscode.ExtensionContext) {
 
           // Paste.
           vscode.window.activeTextEditor?.edit((editBuilder) => {
-            editBuilder.insert(new vscode.Position(0, 0), phpArrayValue);
+            const position = r.window.activeTextEditor.selection?.active || new r.Position(0,0);
+            editBuilder.insert(position, phpArrayValue);
           });
         } catch (error) {
           // Show error message.
