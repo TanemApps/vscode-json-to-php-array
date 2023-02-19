@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { convertJsonToPhpArray } from "./convert.ts";
 
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
@@ -10,10 +11,7 @@ export function activate(context: vscode.ExtensionContext) {
           JSON.parse(jsonValue);
 
           // Convert to PHP Array.
-          const phpArrayValue = jsonValue
-            .replaceAll("{", "[")
-            .replaceAll("}", "]")
-            .replaceAll(":", " =>");
+          const phpArrayValue = convertJsonToPhpArray(jsonValue);
 
           // Paste.
           vscode.window.activeTextEditor?.edit((editBuilder) => {
