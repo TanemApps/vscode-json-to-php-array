@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { convertJsonToPhpArray } from "./convert.ts";
+import { convertJsonToPhpArray } from "./convert";
 
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
