@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { convertJsonToPhpArray } from "./convert";
 
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
@@ -10,14 +11,12 @@ export function activate(context: vscode.ExtensionContext) {
           JSON.parse(jsonValue);
 
           // Convert to PHP Array.
-          const phpArrayValue = jsonValue
-            .replaceAll("{", "[")
-            .replaceAll("}", "]")
-            .replaceAll(":", " =>");
+          const phpArrayValue = convertJsonToPhpArray(jsonValue);
 
           // Paste.
           vscode.window.activeTextEditor?.edit((editBuilder) => {
-            editBuilder.insert(new vscode.Position(0, 0), phpArrayValue);
+            const position = r.window.activeTextEditor.selection?.active || new r.Position(0,0);
+            editBuilder.insert(position, phpArrayValue);
           });
         } catch (error) {
           // Show error message.
