@@ -2,7 +2,7 @@
   "name": "json-to-php-array",
   "displayName": "JSON to PHP Array",
   "description": "Convert JSON to PHP Array",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publisher": "TanemApps",
   "icon": "icon.png",
   "engines": {

@@ -14,10 +14,14 @@ export function activate(context: vscode.ExtensionContext) {
           const phpArrayValue = convertJsonToPhpArray(jsonValue);
 
           // Paste.
-          vscode.window.activeTextEditor?.edit((editBuilder) => {
-            const position = r.window.activeTextEditor.selection?.active || new r.Position(0,0);
-            editBuilder.insert(position, phpArrayValue);
-          });
+          const { activeTextEditor } = vscode.window;
+          if (activeTextEditor) {
+            activeTextEditor?.edit((editBuilder) => {
+              const position =
+                activeTextEditor.selection?.active || new vscode.Position(0, 0);
+              editBuilder.insert(position, phpArrayValue);
+            });
+          }
         } catch (error) {
           // Show error message.
           vscode.window.showInformationMessage("Invalid JSON.");
