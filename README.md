@@ -15,4 +15,10 @@ Convert from clipboard
 
 ### 1.0.0
 
-Initial release.
+- Initial release.
+
+### 1.1.1
+
+- Fix: Insert code at the current cursor position.
+- Fix: Improve conversion to avoid broken string values.
+
